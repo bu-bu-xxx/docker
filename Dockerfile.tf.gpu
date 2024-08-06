@@ -1,0 +1,21 @@
+FROM tensorflow/tensorflow:nightly-gpu-jupyter
+
+
+USER root
+RUN apt-get update
+
+ENV WORKDIR=/notebooks
+WORKDIR ${WORKDIR}
+
+COPY ./pip.conf /etc/
+COPY ./pip.requirements.txt ${WORKDIR}
+RUN pip install -r ${WORKDIR}/pip.requirements.txt
+
+RUN apt-get update -y
+
+# add and change usr:grp
+RUN groupadd -g 1000 mygroup
+RUN useradd -u 1000 -g 1000 -m myuser
+USER myuser
+
+

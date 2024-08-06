@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  tf-jupyter-gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile.tf.gpu
+    image: bubulamb/tensorflow-jupyter-gpu:1.0
+
+    ports:
+      - "8888:8888"
+    
+    volumes:
+      - ./:/notebooks/ # 修改挂载的磁盘路径
+    
+    working_dir: /notebooks
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              count: "all" 
+              capabilities: ["gpu"] # 选择分配的GPU
+
+    command: >
+      jupyter lab --allow-root --ip=0.0.0.0 
+      --NotebookApp.token='' --NotebookApp.password=''
+      --no-browser --port=8888
