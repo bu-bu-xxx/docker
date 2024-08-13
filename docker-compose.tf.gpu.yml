@@ -5,14 +5,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.tf.gpu
-    image: bubulamb/tensorflow-jupyter-gpu:1.0
+      args:
+        - USER_ID=1000 # 用id -u查看
+        - GROUP_ID=1000 # 用id -g查看
+    image: bubulamb/tensorflow-jupyter-gpu:2.0
 
     ports:
       - "8888:8888"
     
     volumes:
-      - ./:/notebooks/ # 修改挂载的磁盘路径
-    
+    # 修改挂载的磁盘路径
+      - ../machineLearning/:/notebooks/machineLearning/
+      - ../deepLearning/:/notebooks/deepLearning/
     working_dir: /notebooks
     
     deploy:
