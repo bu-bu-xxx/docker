@@ -25,3 +25,20 @@
 ```	
 bubulamb/tensorflow-jupyter-gpu
 ```
+
+# nvidia cuda
+
+用cuda nvidia gpu运行tensorflow，环境变量配置如下：
+
+[环境变量路径设置](https://stackoverflow.com/questions/78464430/have-to-export-cudnn-path-every-time-i-want-to-use-gpu-with-tensorflow-wsl)
+
+```bash
+export CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
+export LD_LIBRARY_PATH=${CUDNN_PATH}/lib
+```
+
+如果遇到无法`import nvidia.cudnn`问题，按以下办法解决：
+
+[安装tensorflow[and-cuda] ](https://github.com/tensorflow/tensorflow/issues/63362#issuecomment-1988630226)
+
+执行`pip install tensorflow[and-cuda]`，即可安装`nvidia.cudnn`等库
