@@ -120,3 +120,7 @@ Driver Version: 550.90.07
 CUDA Version: 12.4 
 ```
 
+# 配置docker proxy
+
+参考<https://blog.csdn.net/W25679/article/details/140442416>
+
