@@ -15,8 +15,9 @@ services:
     
     volumes:
     # 修改挂载的磁盘路径
-      - ../machineLearning/:/notebooks/machineLearning/
-      - ../deepLearning/:/notebooks/deepLearning/
+      - ../machineLearning/machine-learning-notebook:/notebooks/machine-learning-notebook
+      # - ../machineLearning/:/notebooks/machineLearning/
+      # - ../deepLearning/:/notebooks/deepLearning/
     working_dir: /notebooks
     
     deploy:
