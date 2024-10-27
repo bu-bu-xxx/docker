@@ -37,6 +37,24 @@ singularity exec --bind /path/to/your/host/directory:/mnt python_3.10.sif python
 **HPC:**
 
 ```shell
+#!/bin/bash
+
+#SBATCH --partition=h07gpuq1
+#SBATCH --time=1-00:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=6
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=30000M
+#SBATCH -J "bubu-kaggle"
+#SBATCH --gres=gpu:1
+
+PATH="/puhome/24112456g/kaggleMATH/"
+SCRIPT_PATH="/puhome/24112456g/kaggleMATH/zqy/code/singular_qwen.py"
+
 module load singularity/3.11.3
-singularity pull docker://bubulamb/python:transformers
+
+singularity exec --bind /puhome/24112456g/kaggleMATH/:/mnt/kaggleMATH ~/python_transformers.sif python /mnt/kaggleMATH/zqy/code/singular_qwen.py
+# 用$PATH会报错，不知道为什么，就直接用路径了
 ```
+
+`singular.sh`
