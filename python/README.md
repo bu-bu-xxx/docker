@@ -5,6 +5,14 @@ docker build -t bubulamb/python:transformers .
 build docker image `user/repo:tag` based on `Dockerfile`
 
 ------------------
+build singularity image
+
+```shell
+module load singularity/3.11.3 
+singularity build python_transformers.sif docker://user/repo:tag
+```
+
+--------------------
 
 use docker image to run your script
 
