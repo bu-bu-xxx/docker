@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   world:
-    image: yeetzone/dontstarvetogether
+    image: yeetzone/dontstarvetogether:latest
     container_name: world
     hostname: world
     depends_on:
@@ -16,7 +16,7 @@ services:
         source: data
         target: /data
   data:
-    image: yeetzone/dontstarvetogether-data
+    image: yeetzone/dontstarvetogether-data:latest
     volumes:
       - type: volume
         source: data
