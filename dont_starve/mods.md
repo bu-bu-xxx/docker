@@ -3,7 +3,7 @@
 删除  345692228   client only
 workshop-2730837741   重击者  master only
 workshop-2621090176   虫洞    已开启master 和 caves
-2063509255       舔盐块  忘记配置
+2063509255       舔盐块  忘记配置   已配置!
 
 已实装的mod中不包含恒发的的mod：
 2063509255   咸咸舔盐块
