@@ -9,10 +9,13 @@ services:
       # - 'server port:container port'
       - '7780:80'                     # HTTP
       - '7443:443'                   # HTTPS
-      - '7722:22'                     # SSH
+      - '7722:7722'                     # SSH
     volumes:
       - '/home/zqy/learningFile/docker/gitlab/container/config:/etc/gitlab'
       - '/home/zqy/learningFile/docker/gitlab/container/logs:/var/log/gitlab'
       - '/home/zqy/learningFile/docker/gitlab/container/data:/var/opt/gitlab'
-        # environment:
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['gitlab_shell_ssh_port'] = 7722;
+        gitlab_rails['lfs_enabled'] = true;
       # GITLAB_OMNITUDE_ROOT_PASSWORD: '2718' 
