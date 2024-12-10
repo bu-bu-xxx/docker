@@ -1,26 +1,10 @@
-version: "3.9"
-services:
-  world:
-    image: yeetzone/dontstarvetogether:latest
-    container_name: world
-    hostname: world
-    depends_on:
-      - data
-    env_file:
-      - world.env
-    #   - local.env
-    ports:
-      - "10999:10999/udp"
-    volumes:
-      - type: volume
-        source: data
-        target: /data
-  data:
-    image: yeetzone/dontstarvetogether-data:latest
-    volumes:
-      - type: volume
-        source: data
-        target: /data
-volumes:
-  data:
+version: '3.8'
 
+services:
+  dst-admin:
+    image: hujinbo23/dst-admin-go:1.3.1
+    container_name: dst-admin-go  # Rename the container
+    ports:
+      - "8082:8082"    # TCP port for HTTP service
+      - "10999:10999/udp"  # UDP port for additional services
+    # restart: unless-stopped
