@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+    flowise:
+        image: flowiseai/flowise:2.2.2
+        # restart: always
+        env_file: .env
+        ports:
+            - '${PORT}:${PORT}'
+        volumes:
+            - /home/zqy/learningFile/docker/flowise/volumn:/root/.flowise
+        entrypoint: /bin/sh -c "sleep 3; flowise start"
