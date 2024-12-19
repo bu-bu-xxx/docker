@@ -1,0 +1,3 @@
+[submodule "dify"]
+	path = dify
+	url = git@github.com:bu-bu-xxx/dify.git
