@@ -1,0 +1,10 @@
+version: '3.8'  
+
+services:
+  ddns-go:
+    image: jeessy/ddns-go
+    container_name: ddns-go
+    restart: always
+    # ports:
+    #   - "9876:9876"
+    network_mode: host
