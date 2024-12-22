@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  dst-admin:
+    image: bubulamb/dst-customization:3.0
+    container_name: dst-admin-go  # Rename the container
+    ports:
+      - "8082:8082"    # TCP port for HTTP service
+      - "10999:10999/udp"  # UDP port for additional services
+      - "10998:10998/udp"  # caves
+    restart: unless-stopped
