@@ -1,3 +1,6 @@
 [submodule "dify"]
 	path = dify
 	url = git@github.com:bu-bu-xxx/dify.git
+[submodule "chaturbate/chaturbate-dvr"]
+	path = chaturbate/chaturbate-dvr
+	url = git@github.com:teacat/chaturbate-dvr.git
