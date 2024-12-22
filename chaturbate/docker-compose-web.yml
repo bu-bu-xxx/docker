@@ -3,7 +3,7 @@ version: "3.0"
 services:
   chaturbate-dvr-web:
     container_name: chaturbate-dvr-web
-    image: bubulamb/chaturbate-dvr-web:2.0 # first search local image, if dont exit, build from web.Dockerfile
+    image: bubulamb/chaturbate-dvr-web:4.0 # first search local image, if dont exit, build from web.Dockerfile
     build:
       context: .
       dockerfile: web.Dockerfile
@@ -15,4 +15,4 @@ services:
     volumes:
       - "/home/zqy/learningFile/docker/chaturbate/videos-dvr:/usr/src/app/videos/"
     ports:
-      - "8003:8080"
+      - "8002:8080"
