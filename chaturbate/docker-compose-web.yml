@@ -7,12 +7,14 @@ services:
     build:
       context: .
       dockerfile: web.Dockerfile
+    restart: unless-stopped
     environment:
       - GUI_USERNAME=bubu
       - GUI_PASSWORD=2718
       - FILENAME_PATTERN="videos/{{.Username}}/{{.Username}}_{{.Year}}-{{.Month}}-{{.Day}}_{{.Hour}}-{{.Minute}}-{{.Second}}"
-      - PORT=8080
+      - PORT=8002
+    network_mode: "host"  # Share the host's network
+    env_file:
+      - /home/zqy/.docker/.env
     volumes:
       - "/home/zqy/learningFile/docker/chaturbate/videos-dvr:/usr/src/app/videos/"
-    ports:
-      - "8002:8080"
