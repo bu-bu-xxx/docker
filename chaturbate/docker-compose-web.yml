@@ -1,0 +1,18 @@
+version: "3.0"
+
+services:
+  chaturbate-dvr-web:
+    container_name: chaturbate-dvr-web
+    image: bubulamb/chaturbate-dvr-web:2.0 # first search local image, if dont exit, build from web.Dockerfile
+    build:
+      context: .
+      dockerfile: web.Dockerfile
+    environment:
+      - GUI_USERNAME=bubu
+      - GUI_PASSWORD=2718
+      - FILENAME_PATTERN="videos/{{.Username}}/{{.Username}}_{{.Year}}-{{.Month}}-{{.Day}}_{{.Hour}}-{{.Minute}}-{{.Second}}"
+      - PORT=8080
+    volumes:
+      - "/home/zqy/learningFile/docker/chaturbate/videos-dvr:/usr/src/app/videos/"
+    ports:
+      - "8003:8080"
