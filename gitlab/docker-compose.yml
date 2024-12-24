@@ -2,22 +2,26 @@ version: '3.1'
 
 services:
   gitlab:
-    image: gitlab/gitlab-ee:17.4.5-ee.0  # Change to gitlab/gitlab-ce for Community Edition
-    # image: gitlab/gitlab-ce:17.4.5-ce.0
-    # restart: always
-    container_name: gitlab-ee
-    hostname: 'gitlab.bubulamb.lol'  # Change to your domain
+    # image: gitlab/gitlab-ee:17.4.5-ee.0  # Change to gitlab/gitlab-ce for Community Edition
+    image: gitlab/gitlab-ce:17.7.0-ce.0
+    restart: always
+    container_name: gitlab-ce
+    # hostname: 'gitlab.bubulamb.lol'  # Change to your domain
+    hostname: 'gitlab.bubulamb.tech'
     ports:
       # - 'server port:container port'
       - '7780:80'                     # HTTP
       - '7443:443'                   # HTTPS
-      - '7722:7722'                     # SSH
+      - '7722:22'                     # SSH
     volumes:
-      - '/home/zqy/learningFile/docker/gitlab/container-ee/config:/etc/gitlab'
-      - '/home/zqy/learningFile/docker/gitlab/container-ee/logs:/var/log/gitlab'
-      - '/home/zqy/learningFile/docker/gitlab/container-ee/data:/var/opt/gitlab'
+      - '/home/zqy/learningFile/docker/gitlab/container/config:/etc/gitlab'
+      - '/home/zqy/learningFile/docker/gitlab/container/logs:/var/log/gitlab'
+      - '/home/zqy/learningFile/docker/gitlab/container/data:/var/opt/gitlab'
+    # shared memory
+    shm_size: '256m'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        gitlab_rails['gitlab_shell_ssh_port'] = 7722;
         gitlab_rails['lfs_enabled'] = true;
+        # external_url 'https://gitlab.bubulamb.lol';
+        external_url 'https://gitlab.bubulamb.tech';
       # GITLAB_OMNITUDE_ROOT_PASSWORD: '2718' 

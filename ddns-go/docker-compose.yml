@@ -1,5 +1,7 @@
 version: '3.8'  
 
+# username:  admin
+
 services:
   ddns-go:
     image: jeessy/ddns-go
