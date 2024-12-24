@@ -68,7 +68,7 @@ def batch(ts_dir, mp4_dir, date, re_tag=True):
 if __name__ == "__main__":
     today = datetime.today().strftime('%Y-%m-%d')
     yesterday = (datetime.today() - pd.Timedelta(days=1)).strftime('%Y-%m-%d')
-    date = '2024-12-22'
+    date = '2024-12-23'
     input_dir = "/home/zqy/learningFile/docker/chaturbate/videos-dvr"
     output_dir = "/home/zqy/media/videos-dvr-mp4"
     batch(input_dir, output_dir, date)
